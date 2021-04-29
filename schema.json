@@ -1,94 +1,329 @@
 {
-   "$schema":"https://specs.frictionlessdata.io/schemas/table-schema.json",
-   "name":"objets-importants",
-   "title":"Schéma des objets importants",
-   "description":"Spécification du fichier d'échange relatif aux objets importants gérés par les collectivités.",
-   "keywords":[
-      "objets",
-      "autre-tag"
-   ],
-   "countryCode":"FR",
-   "homepage":"https://github.com/mon-orga/schema-objets-importants",
-   "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/schema.json",
-   "image":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/irve.png",
-   "licenses":[
-      {
-         "title":"Etalab Licence Ouverte 2.0",
-         "name":"etalab-2.0",
-         "path":"https://spdx.org/licenses/etalab-2.0.html"
+  "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
+  "name": "Données essentielles de la commande publique",
+  "title": "Schéma tabulaire des données essentielles de la commande publique",
+  "description": "Spécification des données essentielles d'attributions de marchés publics.",
+  "keywords": [
+    "marché public",
+    "commande publique",
+    "données essentielles"
+  ],
+  "countryCode": "FR",
+  "homepage": "https://github.com/ColinMaudry/decp-table-schema",
+  "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/schema.json",
+  "licenses": [
+    {
+      "title": "Licence Ouverte",
+      "name": "etalab-2.0",
+      "path": "https://www.etalab.gouv.fr/licence-ouverte-open-licence"
+    }
+  ],
+  "resources": [
+    {
+      "title": "Fichier valide (CSV)",
+      "name": "exemple-valide",
+      "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.csv"
+    },
+    {
+      "title": "Fichier valide (ODS)",
+      "name": "exemple-valide",
+      "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.ods"
+    },
+    {
+      "title": "Fichier valide (XLS)",
+      "name": "exemple-valide",
+      "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.xls"
+    },
+    {
+      "title": "Fichier valide (XLSX)",
+      "name": "exemple-valide",
+      "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.xlsx"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Arrêté du 22 mars 2019 relatif aux données essentielles dans la commande publique",
+      "path": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038318675/"
+    }
+  ],
+  "created": "2020-02-20",
+  "lastModified": "",
+  "version": "0.1.0",
+  "contributors": [
+    {
+      "title": "Colin Maudry",
+      "email": "colin@maudry.com",
+      "role": "author"
+    }
+  ],
+  "fields": [
+    {
+      "name": "id",
+      "title": "Numéro d'identification unique de marché public.",
+      "description": "Les 4 premiers caractères sont l'année de notification, de 1 à 10 caractères l'identifiant internet, les deux derniers caractères sont le numéro de séquence (nombre de modifications : 00 pour les données initiales, 01 pour la première modification, etc).",
+      "example": "2019056462312700",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "minLength": 7,
+        "maxLength": 16
       }
-   ],
-   "resources":[
-      {
-         "title":"Fichier valide (CSV)",
-         "name":"exemple-valide-csv",
-         "path":"https://github.com/mon-orga/schema-objets-importants/raw/v0.1.1/exemple-valide.csv"
+    },
+    {
+      "name": "uid",
+      "title": "Numéro d'identification unique de marché public (national)",
+      "description": "Identifiant du marché, préfixé avec le SIRET de l'acheteur pour être unique au niveau national.",
+      "example": "233500016000402019056462312700",
+      "type": "string",
+      "constraints": {
+        "required": false,
+        "minLength": 21,
+        "maxLength": 30
       }
-   ],
-   "sources":[
-      {
-         "title":"Arrêté du 12 janvier 2017 relatif aux objets importants",
-         "path":"https://beta.legifrance.gouv.fr/codes/id/LEGISCTA000031367685/2020-05-25"
+    },
+    {
+      "name": "acheteur.id",
+      "title": "Identification de l'acheteur (SIRET)",
+      "description": "En cas de groupement de commande, c'est le SIRET du mandataire.",
+      "example": "23350001600040",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "minLength": 14,
+        "maxLength": 14
       }
-   ],
-   "created":"2018-06-29",
-   "lastModified":"2019-05-06",
-   "version":"0.1.1",
-   "contributors":[
-      {
-         "title":"John Smith",
-         "email":"john.smith@etalab.gouv.fr",
-         "organisation":"Etalab",
-         "role":"author"
+    },
+    {
+      "name": "acheteur.nom",
+      "title": "Nom de l'acheteur",
+      "description": "En cas de groupement de commande, c'est le nom du mandataire.",
+      "example": "Conseil régional de Bretagne",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "nature",
+      "title": "Nature du marché",
+      "example": "Marché",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Marché",
+          "Marché de partenariat",
+          "Accord-cadre",
+          "Marché subséquent"
+        ]
+      }
+    },
+    {
+      "name": "objet",
+      "title": "Objet du marché ou du lot",
+      "description": "Description synthétique de l'objet du marché ou du lot.",
+      "example": "Impression d'affiches pour l'évènement Urban Trail",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "maxLength": 256
+      }
+    },
+    {
+      "name": "codeCPV",
+      "title": "Code CPV principal",
+      "description": "Nomenclature européenne permettant d'identifier les catégories de biens et de service faisant l'objet du marché (http://simap.ted.europa.eu/web/simap/cpv). Même si toléré, il préférable d'omettre le caractère de contrôle (-9))",
+      "example": "79311000",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "pattern": "(^[0-9]{8,8}(\\-[0-9])?)$"
+      }
+    },
+    {
+      "name": "procedure",
+      "title": "Procédure de passation de marché",
+      "description": "La procédure de passation de marché utilisée par l'acheteur.",
+      "example": "Procédure adaptée",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Procédure adaptée",
+          "Appel d'offres ouvert",
+          "Appel d'offres restreint",
+          "Procédure avec négociation",
+          "Marché passé sans publicité ni mise en concurrence préalable",
+          "Dialogue compétitif"
+        ]
+      }
+    },
+    {
+      "name": "lieuExecution.code",
+      "title": "Code du lieu d'exécution",
+      "description": "Code du lieu d'exécution (code postal, commune, canton, arrondissement, département, région, pays). Les codes INSEE sont à privilégier aux dépens du code postal.",
+      "example": "35238",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "lieuExecution.typeCode",
+      "title": "Type de code du lieu d'exécution",
+      "description": "Le type de code utilisé pour désigner le lieu d'exécution. Hormis le Code postal, les codes sont des codes géographiques gérés par l'INSEE (http://www.insee.fr/fr/methodes/nomenclatures/cog/default.asp)",
+      "example": "Code commune",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Code postal",
+          "Code commune",
+          "Code arrondissement",
+          "Code canton",
+          "Code département",
+          "Code région",
+          "Code pays"
+        ]
+      }
+    },
+    {
+      "name": "lieuExecution.nom",
+      "title": "Nom du lieu d'exécution",
+      "example": "Rennes",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "dureeMois",
+      "title": "Durée initiale du marché",
+      "description": "La durée du marché, en mois. La durée du marché comprend la durée des tranches et reconductions potentielles.",
+      "example": 3,
+      "type": "integer",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "dateNotification",
+      "title": "Date de notification",
+      "description": "Date à laquelle le marché ou la modification du marché a été notifié au(x) titulaire(s), au format AAAA-MM-JJ.",
+      "example": "2019-04-27",
+      "type": "date",
+      "format": "%Y-%m-%d",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "datePublicationDonnees",
+      "title": "Date de publication des données",
+      "description": "Date à laquelle les données du marché ou de la modification du marché ont été publiées, au format AAAA-MM-JJ.",
+      "example": "2019-04-29",
+      "type": "date",
+      "format": "%Y-%m-%d",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "montant",
+      "title": "Montant",
+      "description": "Montant forfaitaire ou estimé maximum HT du marché attribué.",
+      "example": 21800.1,
+      "type": "number",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "formePrix",
+      "title": "Forme du prix",
+      "description": "Ferme : le prix est fixé pour toute la durée marché. Ferme et actualisable : le prix peut évoluer périodiquement selon des conditions prévues dans le contrat initial (ex : variation d'indice). Révisable : l'acheteur et le(s) titulaire(s) peuvent s'entendre sur une modification du prix après la signature du marché.)",
+      "example": "Ferme",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Ferme",
+          "Ferme et actualisable",
+          "Révisable"
+        ]
+      }
+    },
+    {
+      "name": "titulaire.id",
+      "title": "Identifiant du titulaire",
+      "description": "Identifiant de l'opérateur économique auquel l'acheteur a attribué ce marché. En cas de marché multi-attributaires, il s'agit d'un des attributaires du marché.",
+      "example": "81223113200034",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "titulaire.typeIdentifiant",
+      "title": "Type d'identifiant (titulaire)",
+      "description": "Types d'identifiants possibles (favoriser le SIRET) : SIRET, TVA, TAHITI, RIDET, FRWF, IREP, UE, HORS-UE.",
+      "example": "SIRET",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "SIRET",
+          "TVA",
+          "TAHITI",
+          "RIDET",
+          "FRWF",
+          "IREP",
+          "HORS-UE"
+        ]
+      }
+    },
+    {
+      "name": "titulaire.denominationSociale",
+      "title": "Dénomination sociale",
+      "description": "Nom de l'opérateur économique auquel l'acheteur a attribué ce marché. En cas de marché multi-attributaires, il s'agit d'un des attributaires du marché.",
+      "example": "Colin Maudry",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "objetModification",
+      "title": "Objet de la modification",
+      "description": "Raisons de la modification du marché. Ce champ est vide pour une attribution et doit être rempli en cas de modification.",
+      "example": "Augmentation de la durée du marché à 12 mois.",
+      "type": "string",
+      "constraints": {
+        "required": false
+      }
+    },
+    {
+      "name": "donneesActuelles",
+      "title": "Données actuelles",
+      "description": "Indique si cette ligne contient les données les plus récentes pour ce marché (\"oui\") ou bien des données qui ont été modifiées depuis (\"non\").",
+      "example": "oui",
+      "type": "boolean",
+      "constraints": {
+        "required": false
       },
-      {
-         "title":"Jane Doe",
-         "email":"jane.doe@example.com",
-         "organisation":"Association très importante",
-         "role":"contributor"
+      "trueValues": ["oui"],
+      "falseValues": ["non"]
+
+    },
+    {
+      "name": "anomalies",
+      "title": "Anomalies",
+      "description": "Les anomalies détéctées dans les données de ce marché, séparées par un point-virgule.",
+      "example": ".id de l'acheteur manquant, trop court ou null;.titulaires manquant ou vide",
+      "type": "string",
+      "constraints": {
+        "required": false
       }
-   ],
-   "fields":[
-      {
-         "name":"id",
-         "description":"Un identifiant unique de l'objet.",
-         "example":"42",
-         "type":"integer",
-         "constraints":{
-            "required":true,
-            "minimum":1
-         }
-      },
-      {
-         "name":"date_creation",
-         "description":"La date de création de l'objet, au format ISO 8601 AAAA-MM-DD.",
-         "example":"2020-02-27",
-         "type":"date",
-         "constraints":{
-            "required":true
-         }
-      },
-      {
-         "name":"nom",
-         "description":"Le nom de l'objet.",
-         "example":"Brouette",
-         "type":"string",
-         "constraints":{
-            "required":true
-         }
-      },
-      {
-         "name":"classification",
-         "description":"Classification de l'objet.",
-         "example":"Classification A",
-         "type":"array",
-         "arrayItem":{
-            "type": "string",
-            "constraints": {
-               "enum": ["Classification A", "Classification B", "Classification C"]
-            }
-         }
-      }
-   ],
-   "primaryKey":"id"
+    }
+  ]
 }
