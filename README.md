@@ -34,7 +34,7 @@ Les [données exemples](https://github.com/ColinMaudry/decp-table-schema/tree/ma
 
 ## Documentation du schéma
 
-- Schéma créé le : 02/20/20
+- Schéma créé le : 20/02/2021
 - Site web : https://github.com/ColinMaudry/decp-table-schema
 - Version : 0.1.0
 
@@ -62,12 +62,15 @@ Les [données exemples](https://github.com/ColinMaudry/decp-table-schema/tree/ma
 |titulaire.typeIdentifiant (Type d'identifiant (titulaire))|chaîne de caractères|Types d'identifiants possibles (favoriser le SIRET) : SIRET, TVA, TAHITI, RIDET, FRWF, IREP, UE, HORS-UE.|SIRET|Valeur obligatoire, Valeurs autorisées : SIRET, TVA, TAHITI, RIDET, FRWF, IREP, HORS-UE|
 |titulaire.denominationSociale (Dénomination sociale)|chaîne de caractères|Nom de l'opérateur économique auquel l'acheteur a attribué ce marché. En cas de marché multi-attributaires, il s'agit d'un des attributaires du marché.|Colin Maudry|Valeur obligatoire|
 |objetModification (Objet de la modification)|chaîne de caractères|Raisons de la modification du marché. Ce champ est vide pour une attribution et doit être rempli en cas de modification.|Augmentation de la durée du marché à 12 mois.|Valeur optionnelle|
+|source (Source)|chaîne de caractères|Plateforme ou flux dont proviennent les données de ce marché.|data.gouv.fr_pes|Valeur optionnelle|
 |donneesActuelles (Données actuelles)|booléen|Valeurs considérées comme vraies : ['oui']Valeurs considérées comme fausses : ['non']Indique si cette ligne contient les données les plus récentes pour ce marché ("oui") ou bien des données qui ont été modifiées depuis ("non").|oui|Valeur optionnelle|
 |anomalies (Anomalies)|chaîne de caractères|Les anomalies détéctées dans les données de ce marché, séparées par un point-virgule.|.id de l'acheteur manquant, trop court ou null;.titulaires manquant ou vide|Valeur optionnelle|
 
 
 ## Comment utiliser le schéma
 
+1. Utlilisez les fichiers vides comme base de départ.
+2. Rendez-vous sur [Validata](https://go.validata.fr/table-schema?schema_url=https%3A%2F%2Fgithub.com%2FColinMaudry%2Fdecp-table-schema%2Fraw%2Fmain%2Fschema.json) pour valider votre fichier une fois celui-ci rempli
 
 ## Intégration continue
 
