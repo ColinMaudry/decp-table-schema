@@ -25,4 +25,4 @@ jobs:
     - name: Vérification du schéma et des fichiers d'exemples
       run: |
         frictionless validate --type schema schema.json
-        frictionless validate --schema schema.json exemple-valide.csv
+        frictionless validate --schema schema.json exemples/exemple-valide.csv
