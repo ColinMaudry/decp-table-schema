@@ -303,6 +303,16 @@
       }
     },
     {
+      "name": "source",
+      "title": "Source",
+      "description": "Plateforme ou flux dont proviennent les données de ce marché.",
+      "example": "data.gouv.fr_pes",
+      "type": "string",
+      "constraints": {
+        "required": false
+      }
+    },
+    {
       "name": "donneesActuelles",
       "title": "Données actuelles",
       "description": "Indique si cette ligne contient les données les plus récentes pour ce marché (\"oui\") ou bien des données qui ont été modifiées depuis (\"non\").",
@@ -313,7 +323,6 @@
       },
       "trueValues": ["oui"],
       "falseValues": ["non"]
-
     },
     {
       "name": "anomalies",
