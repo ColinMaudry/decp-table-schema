@@ -60,7 +60,7 @@
       "type": "string",
       "constraints": {
         "required": true,
-        "minLength": 7,
+        "minLength": 1,
         "maxLength": 16
       }
     },
@@ -265,7 +265,7 @@
       "type": "string",
       "constraints": {
         "required": true,
-        "minLength": 7,
+        "minLength": 1,
         "maxLength": 16
       }
     },
