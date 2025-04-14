@@ -2,6 +2,31 @@
 
 Ce fichier répertorie les changements entre différentes versions du schéma.
 
+## Version 2.0.0
+
+### Ajout des colonnes non-listes du format DECP 2022
+
+- attributionAvance
+- tauxAvance
+- ccag
+- origineUE
+- origineFrance
+- marcheInnovant
+- offresRecues
+- sousTraitanceDeclaree
+- typeGroupementOperateurs
+- idAccordCadre
+
+### Remplacement du "." de séparation par un "_"
+
+- acheteur.id => acheteur_id
+- acheteur.nom => acheteur_nom
+- titulaire.id => titulaire_id
+- titulaire.typeIdentifiant => titulaire_typeIdentifiant
+- titulaire.nom => titulaire_nom
+- lieuExecution.code => lieuExecution_code
+- lieuExecution.typeCode => lieuExecution_typeCode
+
 ## Version 0.1.0 - 2018-06-29
 
 Publication initiale.

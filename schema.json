@@ -30,11 +30,6 @@
       "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.ods"
     },
     {
-      "title": "Fichier valide (XLS)",
-      "name": "exemple-valide",
-      "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.xls"
-    },
-    {
       "title": "Fichier valide (XLSX)",
       "name": "exemple-valide",
       "path": "https://raw.githubusercontent.com/ColinMaudry/decp-table-schema/main/exemples/exemple-valide.xlsx"
@@ -47,8 +42,8 @@
     }
   ],
   "created": "2021-02-20",
-  "lastModified": "",
-  "version": "0.1.0",
+  "lastModified": "2025-04-14",
+  "version": "2.0.0",
   "contributors": [
     {
       "title": "Colin Maudry",
@@ -82,7 +77,7 @@
       }
     },
     {
-      "name": "acheteur.id",
+      "name": "acheteur_id",
       "title": "Identification de l'acheteur (SIRET)",
       "description": "En cas de groupement de commande, c'est le SIRET du mandataire.",
       "example": "23350001600040",
@@ -94,7 +89,7 @@
       }
     },
     {
-      "name": "acheteur.nom",
+      "name": "acheteur_nom",
       "title": "Nom de l'acheteur",
       "description": "En cas de groupement de commande, c'est le nom du mandataire.",
       "example": "Conseil régional de Bretagne",
@@ -159,7 +154,7 @@
       }
     },
     {
-      "name": "lieuExecution.code",
+      "name": "lieuExecution_code",
       "title": "Code du lieu d'exécution",
       "description": "Code du lieu d'exécution (code postal, commune, canton, arrondissement, département, région, pays). Les codes INSEE sont à privilégier aux dépens du code postal.",
       "example": "35238",
@@ -169,7 +164,7 @@
       }
     },
     {
-      "name": "lieuExecution.typeCode",
+      "name": "lieuExecution_typeCode",
       "title": "Type de code du lieu d'exécution",
       "description": "Le type de code utilisé pour désigner le lieu d'exécution. Hormis le Code postal, les codes sont des codes géographiques gérés par l'INSEE (http://www.insee.fr/fr/methodes/nomenclatures/cog/default.asp)",
       "example": "Code commune",
@@ -188,7 +183,7 @@
       }
     },
     {
-      "name": "lieuExecution.nom",
+      "name": "lieuExecution_nom",
       "title": "Nom du lieu d'exécution",
       "example": "Rennes",
       "type": "string",
@@ -254,7 +249,7 @@
       }
     },
     {
-      "name": "titulaire.id",
+      "name": "titulaire_id",
       "title": "Identifiant du titulaire",
       "description": "Identifiant de l'opérateur économique auquel l'acheteur a attribué ce marché. En cas de marché multi-attributaires, il s'agit d'un des attributaires du marché.",
       "example": "81223113200034",
@@ -264,7 +259,7 @@
       }
     },
     {
-      "name": "titulaire.typeIdentifiant",
+      "name": "titulaire_typeIdentifiant",
       "title": "Type d'identifiant (titulaire)",
       "description": "Types d'identifiants possibles (favoriser le SIRET) : SIRET, TVA, TAHITI, RIDET, FRWF, IREP, UE, HORS-UE.",
       "example": "SIRET",
@@ -283,7 +278,7 @@
       }
     },
     {
-      "name": "titulaire.denominationSociale",
+      "name": "titulaire_denominationSociale",
       "title": "Dénomination sociale",
       "description": "Nom de l'opérateur économique auquel l'acheteur a attribué ce marché. En cas de marché multi-attributaires, il s'agit d'un des attributaires du marché.",
       "example": "Colin Maudry",
