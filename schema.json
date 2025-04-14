@@ -154,6 +154,122 @@
       }
     },
     {
+      "name": "attributionAvance",
+      "title": "Attribution d'avance",
+      "description": "Si le ou les titulaires du marché se voient verser une partie du montant du marché à la signature du contrat.",
+      "example": "oui",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+       {
+      "name": "tauxAvance",
+      "title": "Taux de l'avance",
+      "description": "Pourcentage du montant du marché versé par l'acheteur aux titulaires à la signature du contrat.",
+      "example": 0.25,
+      "type": "number",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "ccag",
+      "title": "CCAG",
+      "description": "Cahier des clauses administratives générales (CCAG) utilisées pour le marché public.",
+      "example": "Travaux",
+      "type": "number",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Travaux",
+          "Maitrise d'œuvre",
+          "Fournitures courantes et services",
+          "Marchés industriels",
+          "Prestations intellectuelles",
+          "Techniques de l'information et de la communication",
+          "Pas de CCAG"
+        ]
+      }
+    },
+    {
+      "name": "origineUE",
+      "title": "Origine UE",
+      "description": "Pourcentage des produits issus de l'Union européenne. Ne peut pas être inférieur à la valeur de origineFrance.",
+      "example": 0.6,
+      "type": "number",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "origineFrance",
+      "title": "Origine France   ",
+      "description": "Pourcentage des produits fabriqués en France. Ne peut pas être supérieur à la valeur de origineUE.",
+      "example": 0.6,
+      "type": "number",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "marcheInnovant",
+      "title": "Marché innovant",
+      "description": "Si le marché comporte des travaux, services ou fournitures innovants",
+      "example": "non",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "offresRecues",
+      "title": "Offres reçues",
+      "description": "Nombre d'offres reçues de la part des candidats durant l'appel d'offres.",
+      "example": 5,
+      "type": "integer",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "sousTraitanceDeclaree",
+      "title": "Sous-traitance déclarée",
+      "description": "Si une partie du marché est sous-traitée par les titulaires.",
+      "example": "non",
+      "type": "string",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "typeGroupementOperateurs",
+      "title": "Type de groupement d'opérateurs",
+      "description": "Type de groupement d'opérateurs économiques.",
+      "example": "Conjoint",
+      "type": "number",
+      "constraints": {
+        "required": true,
+        "enum": [
+          "Conjoint",
+          "Solidaire",
+          "Pas de groupement"
+        ]
+      }
+    },
+    {
+      "name": "idAccordCadre",
+      "title": "Identifiant de l'accord-cadre",
+      "description": "Numéro d'identification unique de l'accord-cadre auquel est rattaché le marché subséquent",
+      "example": "20190564623127",
+      "type": "string",
+      "constraints": {
+        "required": true,
+        "minLength": 7,
+        "maxLength": 16
+      }
+    },
+    {
       "name": "lieuExecution_code",
       "title": "Code du lieu d'exécution",
       "description": "Code du lieu d'exécution (code postal, commune, canton, arrondissement, département, région, pays). Les codes INSEE sont à privilégier aux dépens du code postal.",
