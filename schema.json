@@ -1,6 +1,6 @@
 {
   "$schema": "https://specs.frictionlessdata.io/schemas/table-schema.json",
-  "name": "Données essentielles de la commande publique",
+  "name": "decp",
   "title": "Schéma tabulaire des données essentielles de la commande publique",
   "description": "Spécification des données essentielles d'attributions de marchés publics.",
   "keywords": [
@@ -178,7 +178,7 @@
       "title": "CCAG",
       "description": "Cahier des clauses administratives générales (CCAG) utilisées pour le marché public.",
       "example": "Travaux",
-      "type": "number",
+      "type": "string",
       "constraints": {
         "required": true,
         "enum": [
@@ -247,7 +247,7 @@
       "title": "Type de groupement d'opérateurs",
       "description": "Type de groupement d'opérateurs économiques.",
       "example": "Conjoint",
-      "type": "number",
+      "type": "string",
       "constraints": {
         "required": true,
         "enum": [
