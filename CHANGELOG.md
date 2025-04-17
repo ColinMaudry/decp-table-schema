@@ -4,7 +4,7 @@ Ce fichier répertorie les changements entre différentes versions du schéma.
 
 ## Version 2.0.0
 
-### Ajout des colonnes non-listes du format DECP 2022
+### Ajout des colonnes non-listes du [format DECP 2022](https://www.legifrance.gouv.fr/jorf/id/JORFARTI000048678668)
 
 - attributionAvance
 - tauxAvance

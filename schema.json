@@ -55,7 +55,7 @@
     {
       "name": "id",
       "title": "Numéro d'identification unique de marché public.",
-      "description": "Les 4 premiers caractères sont l'année de notification, de 1 à 10 caractères l'identifiant internet, les deux derniers caractères sont le numéro de séquence (nombre de modifications : 00 pour les données initiales, 01 pour la première modification, etc).",
+      "description": "Identifiant du marché, de 1 à 16 caractères. Unique par acheteur.",
       "example": "2019056462312700",
       "type": "string",
       "constraints": {
