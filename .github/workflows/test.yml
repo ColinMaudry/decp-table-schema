@@ -23,3 +23,5 @@ jobs:
       run: |
         frictionless validate --type schema schema.json
         frictionless validate --schema schema.json exemples/exemple-valide.csv
+        frictionless validate --schema schema.json exemples/exemple-valide.xlsx
+        frictionless validate --schema schema.json exemples/exemple-valide.ods
