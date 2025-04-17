@@ -4,6 +4,10 @@ Ce fichier répertorie les changements entre différentes versions du schéma.
 
 ## Version 2.0.0
 
+### Version de Frictionless
+
+Pour l'instant on reste sur Frictionless 4.
+
 ### Ajout des colonnes non-listes du [format DECP 2022](https://www.legifrance.gouv.fr/jorf/id/JORFARTI000048678668)
 
 - attributionAvance
@@ -29,4 +33,4 @@ Ce fichier répertorie les changements entre différentes versions du schéma.
 
 ## Version 0.1.0 - 2018-06-29
 
-Publication initiale.
+Publication initiale, basée sur le format DECP 2019.

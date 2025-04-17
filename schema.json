@@ -56,7 +56,7 @@
       "name": "id",
       "title": "Numéro d'identification unique de marché public.",
       "description": "Identifiant du marché, de 1 à 16 caractères. Unique par acheteur.",
-      "example": "2019056462312700",
+      "example": "20190564623127",
       "type": "string",
       "constraints": {
         "required": true,
@@ -68,7 +68,7 @@
       "name": "uid",
       "title": "Numéro d'identification unique de marché public (national)",
       "description": "Identifiant du marché, préfixé avec le SIRET de l'acheteur pour être unique au niveau national.",
-      "example": "233500016000402019056462312700",
+      "example": "2335000160004020190564623127",
       "type": "string",
       "constraints": {
         "required": false,
@@ -180,15 +180,14 @@
       "example": "Travaux",
       "type": "string",
       "constraints": {
-        "required": true,
+        "required": false,
         "enum": [
           "Travaux",
           "Maitrise d'œuvre",
           "Fournitures courantes et services",
           "Marchés industriels",
           "Prestations intellectuelles",
-          "Techniques de l'information et de la communication",
-          "Pas de CCAG"
+          "Techniques de l'information et de la communication"
         ]
       }
     },
